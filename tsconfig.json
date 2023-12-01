@@ -1,0 +1,8 @@
+{
+	"include": ["src/**/*"],
+	"extends": "@lusc/tsconfig",
+	"compilerOptions": {
+		"module": "NodeNext",
+		"outDir": "dist"
+	}
+}

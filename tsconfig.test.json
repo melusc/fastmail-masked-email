@@ -1,0 +1,9 @@
+{
+	"include": ["src/**/*", "test/**/*"],
+	"extends": "@lusc/tsconfig",
+	"compilerOptions": {
+		"module": "NodeNext",
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true
+	}
+}
