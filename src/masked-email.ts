@@ -35,7 +35,7 @@ type MaskedEmailDetails = z.infer<typeof maskedEmailDetailsSchema>;
 
 export class MaskedEmail {
 	static async create(
-		options_: CreateOptions,
+		options_: CreateOptions = {},
 		session_?: Session,
 	): Promise<MaskedEmail> {
 		const options = createOptionsSchema.parse(options_);
