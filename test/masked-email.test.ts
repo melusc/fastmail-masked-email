@@ -1,5 +1,3 @@
-import {setTimeout} from 'node:timers/promises';
-
 import {test, expect, afterAll} from 'vitest';
 
 import {MaskedEmail, getSession} from '../src/index.ts';
