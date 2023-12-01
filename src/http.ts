@@ -1,7 +1,6 @@
 import {randomBytes} from 'node:crypto';
 import {inspect} from 'node:util';
 
-import debug from 'debug';
 import {z} from 'zod';
 
 import type {Session} from './schemas.js';
@@ -40,7 +39,6 @@ export async function httpRequest<T extends z.ZodTypeAny>({
 
 	if (!successStatusCodes.has(response.status)) {
 		const body = await response.text();
-		debug(action)('Http Error %s: %s', response.status, body);
 
 		const errorMessage = `${action} failed with status code ${response.status}: ${response.statusText}. ${body}`;
 		throw new Error(errorMessage);
