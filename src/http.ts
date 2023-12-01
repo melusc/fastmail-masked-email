@@ -7,7 +7,7 @@ import type {Session} from './schemas.js';
 
 inspect.defaultOptions.depth = Number.POSITIVE_INFINITY;
 
-export type HttpOptions<T extends z.ZodTypeAny> = {
+type HttpOptions<T extends z.ZodTypeAny> = {
 	url: string;
 	headers?: Record<string, string> | Headers;
 	body?: unknown;
@@ -47,7 +47,7 @@ export async function httpRequest<T extends z.ZodTypeAny>({
 	return schema.promise().parseAsync(response.json());
 }
 
-export type ApiRequestOptions<T extends z.ZodTypeAny> = {
+type ApiRequestOptions<T extends z.ZodTypeAny> = {
 	schema: T;
 	action: string;
 	session: Session;

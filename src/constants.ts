@@ -7,9 +7,6 @@ export const enum MASKED_EMAIL_CALLS {
 	set = 'MaskedEmail/set',
 }
 
-export const MASKED_EMAIL_CAPABILITY
-	= 'https://www.fastmail.com/dev/maskedemail';
-
 /**
  * The default API hostname
  */
