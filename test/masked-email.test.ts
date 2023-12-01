@@ -19,43 +19,47 @@ afterAll(async () => {
 	}
 });
 
-test('MaskedEmail - creating and finding', async () => {
-	const me1Date = new Date().toISOString();
-	const me1 = await MaskedEmail.create({
-		description: `${globalPrefix} ${me1Date}`,
-	});
+test(
+	'MaskedEmail - creating and finding',
+	async () => {
+		const me1Date = new Date().toISOString();
+		const me1 = await MaskedEmail.create({
+			description: `${globalPrefix} ${me1Date}`,
+		});
 
-	expect(me1).toMatchObject({
-		url: undefined,
-		forDomain: '',
-		description: `${globalPrefix} ${me1Date}`,
-		state: 'enabled',
-	});
-
-	const me1ById = await MaskedEmail.findById(me1.id);
-	const me1ByEmail = await MaskedEmail.findByEmail(me1.email);
-
-	// @ts-expect-error MaskedEmail#details are normally private.
-	expect(me1.details).toStrictEqual(me1ById.details);
-	// @ts-expect-error MaskedEmail#details are normally private.
-	expect(me1.details).toStrictEqual(me1ByEmail.details);
-
-	await me1.permanentlyDelete();
-	await expect(async () => {
-		await me1.update({
+		expect(me1).toMatchObject({
+			url: undefined,
+			forDomain: '',
+			description: `${globalPrefix} ${me1Date}`,
 			state: 'enabled',
 		});
-	}).rejects.toThrow();
 
-	await expect(async () => {
-		await MaskedEmail.findById(me1.id);
-	}).rejects.toThrow();
-	await expect(async () => {
-		await MaskedEmail.findByEmail(me1.email);
-	}).rejects.toThrow();
-}, {
-	timeout: 10e3,
-});
+		const me1ById = await MaskedEmail.findById(me1.id);
+		const me1ByEmail = await MaskedEmail.findByEmail(me1.email);
+
+		// @ts-expect-error MaskedEmail#details are normally private.
+		expect(me1.details).toStrictEqual(me1ById.details);
+		// @ts-expect-error MaskedEmail#details are normally private.
+		expect(me1.details).toStrictEqual(me1ByEmail.details);
+
+		await me1.permanentlyDelete();
+		await expect(async () => {
+			await me1.update({
+				state: 'enabled',
+			});
+		}).rejects.toThrow();
+
+		await expect(async () => {
+			await MaskedEmail.findById(me1.id);
+		}).rejects.toThrow();
+		await expect(async () => {
+			await MaskedEmail.findByEmail(me1.email);
+		}).rejects.toThrow();
+	},
+	{
+		timeout: 10e3,
+	},
+);
 
 test(
 	'MaskedEmail - updating',
