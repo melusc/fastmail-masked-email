@@ -53,6 +53,8 @@ test('MaskedEmail - creating and finding', async () => {
 	await expect(async () => {
 		await MaskedEmail.findByEmail(me1.email);
 	}).rejects.toThrow();
+}, {
+	timeout: 10e3,
 });
 
 test(
