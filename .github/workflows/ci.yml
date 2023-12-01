@@ -38,6 +38,8 @@ jobs:
 
       - name: CI tests
         run: yarn run test
+        env:
+          JMAP_TOKEN: ${{ secrets.JMAP_TOKEN }}
 
       - name: Build # Type checking
         run: yarn build
