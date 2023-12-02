@@ -54,3 +54,5 @@ export async function getSession(
 	sessionCache.get(apiToken)!.set(hostname, session);
 	return session;
 }
+
+export type {Session} from './schemas.js';
