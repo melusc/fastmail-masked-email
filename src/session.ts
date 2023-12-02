@@ -1,10 +1,11 @@
-import {env} from 'node:process';
-
 import {API_HOSTNAME, JMAP} from './constants.js';
 import {httpRequest} from './http.js';
 import {sessionResponseSchema, type Session} from './schemas.js';
 
 const sessionCache = new Map<string, Map<string, Session>>();
+
+// eslint-disable-next-line n/prefer-global/process
+const env = typeof process === 'undefined' ? {} : process.env;
 
 export async function getSession(
 	apiToken?: string,
