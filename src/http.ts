@@ -1,11 +1,8 @@
 import {randomBytes} from 'node:crypto';
-import {inspect} from 'node:util';
 
 import {z} from 'zod';
 
 import type {Session} from './schemas.js';
-
-inspect.defaultOptions.depth = Number.POSITIVE_INFINITY;
 
 type HttpOptions<T extends z.ZodTypeAny> = {
 	url: string;
