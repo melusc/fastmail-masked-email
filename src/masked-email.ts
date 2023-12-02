@@ -1,5 +1,3 @@
-import {randomBytes} from 'node:crypto';
-
 import {z} from 'zod';
 
 import {MASKED_EMAIL_CALLS} from './constants.js';
@@ -42,7 +40,7 @@ export class MaskedEmail {
 		const session = session_ ?? (await getSession());
 
 		const {accountId} = session;
-		const requestId = randomBytes(3).toString('hex');
+		const requestId = Math.random().toString(36).slice(2);
 
 		const details = await apiRequest({
 			session,

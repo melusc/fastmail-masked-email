@@ -1,5 +1,3 @@
-import {randomBytes} from 'node:crypto';
-
 import {z} from 'zod';
 
 import type {Session} from './schemas.js';
@@ -61,7 +59,7 @@ export async function apiRequest<T extends z.ZodTypeAny>({
 }: ApiRequestOptions<T>): Promise<z.infer<T>> {
 	const {apiUrl, apiToken} = session;
 
-	const methodId = randomBytes(4).toString('hex');
+	const methodId = Math.random().toString(36).slice(2);
 
 	const responseBody = await httpRequest({
 		url: apiUrl,
