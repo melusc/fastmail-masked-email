@@ -1,37 +1,48 @@
-import {z} from 'zod';
+import type {z} from 'zod';
+import {
+	array as zArray,
+	boolean as zBoolean,
+	enum as zEnum,
+	number as zNumber,
+	object as zObject,
+	record as zRecord,
+	strictObject as zStrictObject,
+	string as zString,
+	unknown as zUnknown,
+} from 'zod';
 
-export const sessionResponseSchema = z.object({
-	state: z.string(),
-	apiUrl: z.string(),
-	capabilities: z.object({
-		'urn:ietf:params:jmap:core': z.object({
-			maxConcurrentUpload: z.number(),
-			maxConcurrentRequests: z.number(),
-			maxSizeRequest: z.number(),
-			maxObjectsInGet: z.number(),
-			maxCallsInRequest: z.number(),
-			maxSizeUpload: z.number(),
-			maxObjectsInSet: z.number(),
-			collationAlgorithms: z.array(z.string()),
+export const sessionResponseSchema = zObject({
+	state: zString(),
+	apiUrl: zString(),
+	capabilities: zObject({
+		'urn:ietf:params:jmap:core': zObject({
+			maxConcurrentUpload: zNumber(),
+			maxConcurrentRequests: zNumber(),
+			maxSizeRequest: zNumber(),
+			maxObjectsInGet: zNumber(),
+			maxCallsInRequest: zNumber(),
+			maxSizeUpload: zNumber(),
+			maxObjectsInSet: zNumber(),
+			collationAlgorithms: zArray(zString()),
 		}),
-		'https://www.fastmail.com/dev/maskedemail': z.record(z.unknown()),
+		'https://www.fastmail.com/dev/maskedemail': zRecord(zUnknown()),
 	}),
-	accounts: z.record(
-		z.object({
-			name: z.string(),
-			isPersonal: z.boolean(),
-			accountCapabilities: z.object({
-				'urn:ietf:params:jmap:core': z.record(z.unknown()),
-				'https://www.fastmail.com/dev/maskedemail': z.record(z.unknown()),
+	accounts: zRecord(
+		zObject({
+			name: zString(),
+			isPersonal: zBoolean(),
+			accountCapabilities: zObject({
+				'urn:ietf:params:jmap:core': zRecord(zUnknown()),
+				'https://www.fastmail.com/dev/maskedemail': zRecord(zUnknown()),
 			}),
-			isReadOnly: z.boolean(),
+			isReadOnly: zBoolean(),
 		}),
 	),
-	eventSourceUrl: z.string(),
-	downloadUrl: z.string(),
-	uploadUrl: z.string(),
-	username: z.string(),
-	primaryAccounts: z.record(z.string()),
+	eventSourceUrl: zString(),
+	downloadUrl: zString(),
+	uploadUrl: zString(),
+	username: zString(),
+	primaryAccounts: zRecord(zString()),
 });
 
 export type Session = {
@@ -41,7 +52,7 @@ export type Session = {
 	capabilities: string[];
 };
 
-export const maskedEmailStateSchema = z.enum([
+export const maskedEmailStateSchema = zEnum([
 	'enabled',
 	'disabled',
 	'pending',
@@ -67,30 +78,28 @@ export const maskedEmailStateSchema = z.enum([
  */
 export type MaskedEmailState = z.infer<typeof maskedEmailStateSchema>;
 
-export const optionsSchema = z
-	.strictObject({
-		/** The description to set fpr the masked email */
-		description: z.string().optional(),
-		/** The domain to be associated with the masked email */
-		forDomain: z.string().optional(),
-		/**
-		 * The state to set for the masked email
-		 * @defaultValue 'enabled'
-		 * @see {@link MaskedEmailState} for valid values
-		 * */
-		state: maskedEmailStateSchema.default('enabled'),
-	})
-	.refine(options => Object.keys(options).length > 0, {
-		message:
-			'options must contain at least one of `description`, `forDomain`, `state`',
-	});
+export const optionsSchema = zStrictObject({
+	/** The description to set fpr the masked email */
+	description: zString().optional(),
+	/** The domain to be associated with the masked email */
+	forDomain: zString().optional(),
+	/**
+	 * The state to set for the masked email
+	 * @defaultValue 'enabled'
+	 * @see {@link MaskedEmailState} for valid values
+	 * */
+	state: maskedEmailStateSchema.default('enabled'),
+}).refine(options => Object.keys(options).length > 0, {
+	message:
+		'options must contain at least one of `description`, `forDomain`, `state`',
+});
 
 export type Options = z.input<typeof optionsSchema>;
 
 export const createOptionsSchema = optionsSchema.and(
-	z.object({
+	zObject({
 		/** If supplied, the server-assigned email will start with the given prefix. */
-		emailPrefix: z.string().optional(),
+		emailPrefix: zString().optional(),
 	}),
 );
 

@@ -1,4 +1,10 @@
-import {z} from 'zod';
+import type {z} from 'zod';
+import {
+	array as zArray,
+	literal as zLiteral,
+	object as zObject,
+	tuple as zTuple,
+} from 'zod';
 
 import type {Session} from './schemas.js';
 
@@ -64,9 +70,9 @@ export async function apiRequest<T extends z.ZodTypeAny>({
 	const responseBody = await httpRequest({
 		url: apiUrl,
 		headers: new Headers({authorization: `Bearer ${apiToken}`}),
-		schema: z.object({
-			methodResponses: z.array(
-				z.tuple([z.literal(method), schema, z.literal(methodId)]),
+		schema: zObject({
+			methodResponses: zArray(
+				zTuple([zLiteral(method), schema, zLiteral(methodId)]),
 			),
 		}),
 		action,

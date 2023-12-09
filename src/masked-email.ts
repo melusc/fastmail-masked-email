@@ -1,4 +1,12 @@
-import {z} from 'zod';
+import type {z} from 'zod';
+import {
+	array as zArray,
+	null as zNull,
+	object as zObject,
+	record as zRecord,
+	string as zString,
+	unknown as zUnknown,
+} from 'zod';
 
 import {MASKED_EMAIL_CALLS} from './constants.js';
 import {apiRequest} from './http.js';
@@ -13,18 +21,18 @@ import {
 } from './schemas.js';
 import {getSession} from './session.js';
 
-const maskedEmailReducedDetailsSchema = z.object({
-	createdBy: z.string(),
-	createdAt: z.string(),
-	id: z.string(),
-	url: z.string().or(z.null().transform(() => undefined)),
-	lastMessageAt: z.string().or(z.null().transform(() => undefined)),
-	email: z.string().regex(/^[^@]+@[^@]+\.[^@]+$/),
+const maskedEmailReducedDetailsSchema = zObject({
+	createdBy: zString(),
+	createdAt: zString(),
+	id: zString(),
+	url: zString().or(zNull().transform(() => undefined)),
+	lastMessageAt: zString().or(zNull().transform(() => undefined)),
+	email: zString().regex(/^[^@]+@[^@]+\.[^@]+$/),
 });
 const maskedEmailDetailsSchema = maskedEmailReducedDetailsSchema.and(
-	z.object({
-		forDomain: z.string(),
-		description: z.string(),
+	zObject({
+		forDomain: zString(),
+		description: zString(),
 		state: maskedEmailStateSchema,
 	}),
 );
@@ -51,18 +59,16 @@ export class MaskedEmail {
 					[requestId]: options,
 				},
 			},
-			schema: z
-				.object({
-					created: z.object({
-						[requestId]: maskedEmailReducedDetailsSchema,
-					}),
-				})
-				.transform(o => ({
-					...o.created[requestId]!,
-					forDomain: options.forDomain ?? '',
-					description: options.description ?? '',
-					state: options.state,
-				})),
+			schema: zObject({
+				created: zObject({
+					[requestId]: maskedEmailReducedDetailsSchema,
+				}),
+			}).transform(o => ({
+				...o.created[requestId]!,
+				forDomain: options.forDomain ?? '',
+				description: options.description ?? '',
+				state: options.state,
+			})),
 			action: 'MaskedEmail.create',
 		});
 
@@ -104,14 +110,12 @@ export class MaskedEmail {
 			session,
 			method: MASKED_EMAIL_CALLS.get,
 			body: {accountId, ids},
-			schema: z
-				.object({
-					accountId: z.string(),
-					list: z.array(maskedEmailDetailsSchema),
-				})
-				.transform(o =>
-					o.list.map(details => new MaskedEmail(details, session)),
-				),
+			schema: zObject({
+				accountId: zString(),
+				list: zArray(maskedEmailDetailsSchema),
+			}).transform(o =>
+				o.list.map(details => new MaskedEmail(details, session)),
+			),
 			action: 'MaskedEmail.getAllEmails',
 		});
 	}
@@ -173,16 +177,14 @@ export class MaskedEmail {
 					[this.id]: options,
 				},
 			},
-			schema: z.object({
-				updated: z.unknown(),
-				notUpdated: z
-					.record(
-						z.object({
-							description: z.string(),
-							type: z.string(),
-						}),
-					)
-					.optional(),
+			schema: zObject({
+				updated: zUnknown(),
+				notUpdated: zRecord(
+					zObject({
+						description: zString(),
+						type: zString(),
+					}),
+				).optional(),
 			}),
 			action: 'MaskedEmail.update',
 		});
@@ -228,17 +230,15 @@ export class MaskedEmail {
 				destroy: [this.id],
 			},
 			action: 'MaskedEmail#permanentlyDelete',
-			schema: z.object({
-				destroyed: z.array(z.string()),
-				notDestroyed: z
-					.record(
-						z.object({
-							type: z.string(),
-							description: z.string(),
-							subType: z.string(),
-						}),
-					)
-					.optional(),
+			schema: zObject({
+				destroyed: zArray(zString()),
+				notDestroyed: zRecord(
+					zObject({
+						type: zString(),
+						description: zString(),
+						subType: zString(),
+					}),
+				).optional(),
 			}),
 		});
 
