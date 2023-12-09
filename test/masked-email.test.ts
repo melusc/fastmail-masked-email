@@ -1,10 +1,15 @@
-import {test, expect, afterAll} from 'vitest';
+import {version} from 'node:process';
+
+import {afterAll, expect, test} from 'vitest';
 
 import {MaskedEmail, getSession} from '../src/index.ts';
 
-// To identify emails created for this test
-// If the test fails it can still remove them
-const globalPrefix = '19e9c3096d';
+// The static identifier ensures easy cleanup in case of test failures
+// then it will clean up addresses from previous runs
+// Adding a version number to avoid potential race conditions in GitHub CI.
+// This is particularly relevant when a faster run, say node@20, tidies up
+// email addresses from the node@18 run causing errors in that run.
+const globalPrefix = `19e9c3096d-${version}`;
 
 afterAll(async () => {
 	const allEmails = await MaskedEmail.getAllEmails();
