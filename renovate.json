@@ -1,5 +1,5 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": ["melusc/.github:renovate-config"],
-	"schedule": ["0 0 * * 0"]
+	"schedule": ["* 0 * * 0"]
 }
