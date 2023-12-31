@@ -16,7 +16,6 @@
 		"email"
 	],
 	"scripts": {
-		"start": "yarn workspace @lusc/fastmail-masked-email-consumer run start",
 		"test": "vitest run",
 		"fmt": "prettier -w . && xo --fix",
 		"build": "rimraf dist && tsc",
