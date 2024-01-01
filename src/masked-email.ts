@@ -40,12 +40,25 @@ const maskedEmailDetailsSchema = maskedEmailReducedDetailsSchema.and(
 type MaskedEmailDetails = z.infer<typeof maskedEmailDetailsSchema>;
 
 export class MaskedEmail {
+	static create(
+		options?: CreateOptions,
+		session?: Session,
+	): Promise<MaskedEmail>;
+	static create(session: Session): Promise<MaskedEmail>;
 	static async create(
-		options_: CreateOptions = {},
+		options_: CreateOptions | Session = {},
 		session_?: Session,
 	): Promise<MaskedEmail> {
-		const options = createOptionsSchema.parse(options_);
-		const session = session_ ?? (await getSession());
+		let options: z.output<typeof createOptionsSchema>;
+		let session: Session;
+
+		if ('apiToken' in options_) {
+			session = options_;
+			options = createOptionsSchema.parse(options_);
+		} else {
+			options = createOptionsSchema.parse(options_);
+			session = session_ ?? (await getSession());
+		}
 
 		const {accountId} = session;
 		const requestId = Math.random().toString(36).slice(2);
@@ -99,11 +112,28 @@ export class MaskedEmail {
 		throw new Error(`No masked email found using address "${emailAddress}".`);
 	}
 
-	static async getAllEmails(
+	static getAllEmails(session: Session): Promise<MaskedEmail[]>;
+	static getAllEmails(
 		ids?: string[],
+		session?: Session,
+	): Promise<MaskedEmail[]>;
+	static async getAllEmails(
+		ids?: string[] | Session,
 		session_?: Session,
 	): Promise<MaskedEmail[]> {
-		const session = session_ ?? (await getSession());
+		let session: Session;
+
+		if (ids && 'apiToken' in ids) {
+			session = ids;
+			ids = undefined;
+		}
+
+		session ??= session_ ?? (await getSession());
+
+		if (ids?.length === 0) {
+			ids = undefined;
+		}
+
 		const {accountId} = session;
 
 		return apiRequest({
