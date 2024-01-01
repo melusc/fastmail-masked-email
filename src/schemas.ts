@@ -6,7 +6,6 @@ import {
 	number as zNumber,
 	object as zObject,
 	record as zRecord,
-	strictObject as zStrictObject,
 	string as zString,
 	unknown as zUnknown,
 } from 'zod';
@@ -78,7 +77,7 @@ export const maskedEmailStateSchema = zEnum([
  */
 export type MaskedEmailState = z.infer<typeof maskedEmailStateSchema>;
 
-export const optionsSchema = zStrictObject({
+export const optionsSchema = zObject({
 	/** The description to set fpr the masked email */
 	description: zString().optional(),
 	/** The domain to be associated with the masked email */

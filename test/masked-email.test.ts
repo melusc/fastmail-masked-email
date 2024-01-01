@@ -64,6 +64,32 @@ test(
 	},
 );
 
+test('Creating with all undefined', async () => {
+	const me = await MaskedEmail.create({
+		description: globalPrefix,
+		emailPrefix: undefined,
+		forDomain: undefined,
+		state: undefined,
+	});
+
+	await me.permanentlyDelete();
+});
+
+test('Creating with all set', async () => {
+	const me = await MaskedEmail.create({
+		description: globalPrefix,
+		emailPrefix: 'abc',
+		forDomain: 'domain',
+		state: 'disabled',
+	});
+
+	expect(me.email).toMatch(/^abc/);
+	expect(me.forDomain).toBe('domain');
+	expect(me.state).toBe('disabled');
+
+	await me.permanentlyDelete();
+});
+
 test(
 	'MaskedEmail - updating',
 	async () => {

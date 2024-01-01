@@ -54,7 +54,7 @@ export class MaskedEmail {
 
 		if ('apiToken' in options_) {
 			session = options_;
-			options = createOptionsSchema.parse(options_);
+			options = createOptionsSchema.parse({});
 		} else {
 			options = createOptionsSchema.parse(options_);
 			session = session_ ?? (await getSession());
