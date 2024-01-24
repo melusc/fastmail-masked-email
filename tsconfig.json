@@ -3,6 +3,6 @@
 	"extends": "@lusc/tsconfig",
 	"compilerOptions": {
 		"module": "NodeNext",
-		"outDir": "dist"
-	}
+		"outDir": "dist",
+	},
 }
