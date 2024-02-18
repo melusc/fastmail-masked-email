@@ -1,4 +1,3 @@
-import type {z} from 'zod';
 import {
 	array as zArray,
 	boolean as zBoolean,
@@ -8,6 +7,7 @@ import {
 	record as zRecord,
 	string as zString,
 	unknown as zUnknown,
+	type z,
 } from 'zod';
 
 export const sessionResponseSchema = zObject({
