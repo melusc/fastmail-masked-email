@@ -11,9 +11,9 @@ export async function getSession(
 	apiToken?: string,
 	hostname?: string,
 ): Promise<Session> {
-	hostname = hostname ?? env['JMAP_HOSTNAME'] ?? API_HOSTNAME;
+	hostname ??= env['JMAP_HOSTNAME'] ?? API_HOSTNAME;
 
-	apiToken = apiToken ?? env['JMAP_TOKEN'];
+	apiToken ??= env['JMAP_TOKEN'];
 
 	if (!apiToken) {
 		throw new Error(

@@ -1,4 +1,3 @@
-import type {z} from 'zod';
 import {
 	array as zArray,
 	null as zNull,
@@ -6,6 +5,7 @@ import {
 	record as zRecord,
 	string as zString,
 	unknown as zUnknown,
+	type z,
 } from 'zod';
 
 import {MASKED_EMAIL_CALLS} from './constants.js';

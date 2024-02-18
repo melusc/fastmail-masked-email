@@ -1,9 +1,9 @@
-import type {z} from 'zod';
 import {
 	array as zArray,
 	literal as zLiteral,
 	object as zObject,
 	tuple as zTuple,
+	type z,
 } from 'zod';
 
 import type {Session} from './schemas.js';
