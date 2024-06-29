@@ -30,7 +30,7 @@
 	"type": "module",
 	"packageManager": "yarn@4.3.1",
 	"devDependencies": {
-		"@lusc/tsconfig": "^4.1.0",
+		"@lusc/tsconfig": "^5.1.0",
 		"@types/node": "^20.14.9",
 		"dotenv": "^16.4.5",
 		"prettier": "^3.3.2",
