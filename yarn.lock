@@ -312,7 +312,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lusc/fastmail-masked-email@workspace:."
   dependencies:
-    "@lusc/tsconfig": "npm:^4.1.0"
+    "@lusc/tsconfig": "npm:^5.1.0"
     "@types/node": "npm:^20.14.9"
     dotenv: "npm:^16.4.5"
     prettier: "npm:^3.3.2"
@@ -325,10 +325,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lusc/tsconfig@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@lusc/tsconfig@npm:4.1.0"
-  checksum: 10c0/c57d07543dfb14bfe9aef3b3f6ecc3b6ff88285d41c8334e74229ac20064d57b95fee0a03cbb9b923d29544fe4c8b5c285149dcacea1bb5e61f79cff9b380ec5
+"@lusc/tsconfig@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "@lusc/tsconfig@npm:5.1.0"
+  checksum: 10c0/e32e2a8bbe7e8d361fbadb781684cf1e1e041334b0eaf3a18ff9ad181b9b437c4c0babe620b13e3d6f6a0d1032083dd96b0f6f8c802252d813cd64a7689ed466
   languageName: node
   linkType: hard
 
