@@ -313,12 +313,12 @@ __metadata:
   resolution: "@lusc/fastmail-masked-email@workspace:."
   dependencies:
     "@lusc/tsconfig": "npm:^4.1.0"
-    "@types/node": "npm:^20.14.0"
+    "@types/node": "npm:^20.14.9"
     dotenv: "npm:^16.4.5"
-    prettier: "npm:^3.3.0"
+    prettier: "npm:^3.3.2"
     rimraf: "npm:^5.0.7"
-    tsd: "npm:^0.31.0"
-    typescript: "npm:^5.4.5"
+    tsd: "npm:^0.31.1"
+    typescript: "npm:^5.5.2"
     vitest: "npm:^1.6.0"
     xo: "npm:^0.58.0"
     zod: "npm:^3.23.8"
@@ -548,12 +548,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.14.0":
-  version: 20.14.0
-  resolution: "@types/node@npm:20.14.0"
+"@types/node@npm:^20.14.9":
+  version: 20.14.9
+  resolution: "@types/node@npm:20.14.9"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/29ccc7592e9ca6b81d00f3a6673241d08e9042d801b10adfd9ebcbbf326208e0a0133a8d146158db18d02a68b85d9ce1fd94e6e1e5be0da263129bf6e42eb22d
+  checksum: 10c0/911ffa444dc032897f4a23ed580c67903bd38ea1c5ec99b1d00fa10b83537a3adddef8e1f29710cbdd8e556a61407ed008e06537d834e48caf449ce59f87d387
   languageName: node
   linkType: hard
 
@@ -4316,12 +4316,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.2.5, prettier@npm:^3.3.0":
-  version: 3.3.0
-  resolution: "prettier@npm:3.3.0"
+"prettier@npm:^3.2.5, prettier@npm:^3.3.2":
+  version: 3.3.2
+  resolution: "prettier@npm:3.3.2"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/d033c356320aa2e468bf29c931b094ac730d2f4defd5eb2989d8589313dec901d2fc866e3788f3d161e420b142ea4ec3dda535dbe0169ef4d0026397a68ba9cf
+  checksum: 10c0/39ed27d17f0238da6dd6571d63026566bd790d3d0edac57c285fbab525982060c8f1e01955fe38134ab10f0951a6076da37f015db8173c02f14bc7f0803a384c
   languageName: node
   linkType: hard
 
@@ -5140,9 +5140,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsd@npm:^0.31.0":
-  version: 0.31.0
-  resolution: "tsd@npm:0.31.0"
+"tsd@npm:^0.31.1":
+  version: 0.31.1
+  resolution: "tsd@npm:0.31.1"
   dependencies:
     "@tsd/typescript": "npm:~5.4.3"
     eslint-formatter-pretty: "npm:^4.1.0"
@@ -5153,7 +5153,7 @@ __metadata:
     read-pkg-up: "npm:^7.0.0"
   bin:
     tsd: dist/cli.js
-  checksum: 10c0/1e866f6fa820a5d456a6040d772a6af910aa4737dda930d34f9b5a407fa8f020b08eef958c86c6568b7d5af1f3cf69680d4e4c31bf1f2ae92bbd10b630392d52
+  checksum: 10c0/02cf032d57d21b77a9413ebdc4fce2fb080af3d3d189d6c002fbb5e0e6a4eae87a1d7302db5a6dadef9c83061ead6f878f96d425a8b0439786e199a842aab151
   languageName: node
   linkType: hard
 
@@ -5276,23 +5276,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.4.2, typescript@npm:^5.4.5":
-  version: 5.4.5
-  resolution: "typescript@npm:5.4.5"
+"typescript@npm:^5.4.2, typescript@npm:^5.5.2":
+  version: 5.5.2
+  resolution: "typescript@npm:5.5.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/2954022ada340fd3d6a9e2b8e534f65d57c92d5f3989a263754a78aba549f7e6529acc1921913560a4b816c46dce7df4a4d29f9f11a3dc0d4213bb76d043251e
+  checksum: 10c0/8ca39b27b5f9bd7f32db795045933ab5247897660627251e8254180b792a395bf061ea7231947d5d7ffa5cb4cc771970fd4ef543275f9b559f08c9325cccfce3
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.4.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.4.5#optional!builtin<compat/typescript>":
-  version: 5.4.5
-  resolution: "typescript@patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"
+"typescript@patch:typescript@npm%3A^5.4.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.5.2#optional!builtin<compat/typescript>":
+  version: 5.5.2
+  resolution: "typescript@patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/db2ad2a16ca829f50427eeb1da155e7a45e598eec7b086d8b4e8ba44e5a235f758e606d681c66992230d3fc3b8995865e5fd0b22a2c95486d0b3200f83072ec9
+  checksum: 10c0/a7b7ede75dc7fc32a76d0d0af6b91f5fbd8620890d84c906f663d8783bf3de6d7bd50f0430b8bb55eac88a38934af847ff709e7156e5138b95ae94cbd5f73e5b
   languageName: node
   linkType: hard
 
