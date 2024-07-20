@@ -26,13 +26,7 @@
 			}
 		],
 		"no-mixed-spaces-and-tabs": "off",
-		"n/file-extension-in-import": [
-			"error",
-			"always",
-			{
-				".ts": "always"
-			}
-		],
+		"n/file-extension-in-import": "off",
 		"import/order": [
 			"error",
 			{
