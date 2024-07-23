@@ -31,14 +31,14 @@
 	"packageManager": "yarn@4.3.1",
 	"devDependencies": {
 		"@lusc/tsconfig": "^5.1.0",
-		"@types/node": "^20.14.9",
+		"@types/node": "^20.14.11",
 		"dotenv": "^16.4.5",
-		"prettier": "^3.3.2",
+		"prettier": "^3.3.3",
 		"rimraf": "^6.0.1",
 		"tsd": "^0.31.1",
-		"typescript": "^5.5.2",
+		"typescript": "^5.5.4",
 		"vitest": "^2.0.4",
-		"xo": "^0.59.0"
+		"xo": "^0.59.1"
 	},
 	"files": [
 		"dist",

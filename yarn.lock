@@ -358,14 +358,14 @@ __metadata:
   resolution: "@lusc/fastmail-masked-email@workspace:."
   dependencies:
     "@lusc/tsconfig": "npm:^5.1.0"
-    "@types/node": "npm:^20.14.9"
+    "@types/node": "npm:^20.14.11"
     dotenv: "npm:^16.4.5"
-    prettier: "npm:^3.3.2"
+    prettier: "npm:^3.3.3"
     rimraf: "npm:^6.0.1"
     tsd: "npm:^0.31.1"
-    typescript: "npm:^5.5.2"
+    typescript: "npm:^5.5.4"
     vitest: "npm:^2.0.4"
-    xo: "npm:^0.59.0"
+    xo: "npm:^0.59.1"
     zod: "npm:^3.23.8"
   languageName: unknown
   linkType: soft
@@ -607,12 +607,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.14.9":
-  version: 20.14.9
-  resolution: "@types/node@npm:20.14.9"
+"@types/node@npm:^20.14.11":
+  version: 20.14.11
+  resolution: "@types/node@npm:20.14.11"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/911ffa444dc032897f4a23ed580c67903bd38ea1c5ec99b1d00fa10b83537a3adddef8e1f29710cbdd8e556a61407ed008e06537d834e48caf449ce59f87d387
+  checksum: 10c0/5306becc0ff41d81b1e31524bd376e958d0741d1ce892dffd586b9ae0cb6553c62b0d62abd16da8bea6b9a2c17572d360450535d7c073794b0cef9cb4e39691e
   languageName: node
   linkType: hard
 
@@ -4421,7 +4421,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.3.2, prettier@npm:^3.3.3":
+"prettier@npm:^3.3.3":
   version: 3.3.3
   resolution: "prettier@npm:3.3.3"
   bin:
@@ -5387,23 +5387,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.5.2, typescript@npm:^5.5.3":
-  version: 5.5.3
-  resolution: "typescript@npm:5.5.3"
+"typescript@npm:^5.5.3, typescript@npm:^5.5.4":
+  version: 5.5.4
+  resolution: "typescript@npm:5.5.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/f52c71ccbc7080b034b9d3b72051d563601a4815bf3e39ded188e6ce60813f75dbedf11ad15dd4d32a12996a9ed8c7155b46c93a9b9c9bad1049766fe614bbdd
+  checksum: 10c0/422be60f89e661eab29ac488c974b6cc0a660fb2228003b297c3d10c32c90f3bcffc1009b43876a082515a3c376b1eefcce823d6e78982e6878408b9a923199c
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.5.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.5.3#optional!builtin<compat/typescript>":
-  version: 5.5.3
-  resolution: "typescript@patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=379a07"
+"typescript@patch:typescript@npm%3A^5.5.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.5.4#optional!builtin<compat/typescript>":
+  version: 5.5.4
+  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/911c7811d61f57f07df79c4a35f56a0f426a65426a020e5fcd792f66559f399017205f5f10255329ab5a3d8c2d1f1d19530aeceffda70758a521fae1d469432e
+  checksum: 10c0/73409d7b9196a5a1217b3aaad929bf76294d3ce7d6e9766dd880ece296ee91cf7d7db6b16c6c6c630ee5096eccde726c0ef17c7dfa52b01a243e57ae1f09ef07
   languageName: node
   linkType: hard
 
@@ -5691,9 +5691,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xo@npm:^0.59.0":
-  version: 0.59.0
-  resolution: "xo@npm:0.59.0"
+"xo@npm:^0.59.1":
+  version: 0.59.1
+  resolution: "xo@npm:0.59.1"
   dependencies:
     "@eslint/eslintrc": "npm:^3.1.0"
     "@typescript-eslint/eslint-plugin": "npm:^7.16.1"
@@ -5734,7 +5734,7 @@ __metadata:
     typescript: "npm:^5.5.3"
   bin:
     xo: cli.js
-  checksum: 10c0/0c67ec482fc3fcf3b68ba582559858488c35d6e85cb8d148871ef02dae81ea2c90c09ff311c78b6887531384a6e8dbfe0dd88378012dd5c534d38db3829226a1
+  checksum: 10c0/5a3358fd4cd8839449c2b7743259ac909526b9e20e0c034bf9e3af81cc831fd20a2796eae791f58938a519e63b4576bcd1418276179b0fbf86ea27f1a6dc5111
   languageName: node
   linkType: hard
 
