@@ -31,7 +31,7 @@
 	"packageManager": "yarn@4.3.1",
 	"devDependencies": {
 		"@lusc/tsconfig": "^5.1.0",
-		"@types/node": "^20.14.11",
+		"@types/node": "^22.0.0",
 		"dotenv": "^16.4.5",
 		"prettier": "^3.3.3",
 		"rimraf": "^6.0.1",
